@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2500" height="950" viewBox="0 0 2500 950" role="img" aria-label="Placeholder Hero Desktop">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1C2738"/>
+      <stop offset="1" stop-color="#111723"/>
+    </linearGradient>
+  </defs>
+  <rect width="2500" height="950" fill="url(#bg)"/>
+  <circle cx="440" cy="160" r="240" fill="#c9a35f" fill-opacity="0.22"/>
+  <circle cx="2150" cy="760" r="320" fill="#3a5d88" fill-opacity="0.2"/>
+  <text x="120" y="460" fill="#d6dde8" font-family="Arial" font-size="72" font-weight="700">SUBSTITUIR IMAGEM HERO DESKTOP</text>
+  <text x="120" y="550" fill="#99a7bb" font-family="Arial" font-size="42">Tamanho recomendado: 2500x950</text>
+</svg>
