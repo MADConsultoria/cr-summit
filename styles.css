@@ -133,6 +133,7 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  padding-top: 90px;
   padding-bottom: 48px;
 }
 
