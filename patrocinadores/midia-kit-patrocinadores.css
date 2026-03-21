@@ -131,6 +131,10 @@ h3 {
   font-weight: 700;
 }
 
+.hero-actions {
+  margin-top: 16px;
+}
+
 .event-card {
   background: linear-gradient(165deg, rgba(228, 108, 60, 0.22), rgba(23, 35, 45, 0.88));
   border: 1px solid rgba(228, 108, 60, 0.58);
@@ -216,6 +220,11 @@ h3 {
 
 .tier li {
   margin-bottom: 8px;
+}
+
+.tier-btn {
+  width: 100%;
+  margin-top: 16px;
 }
 
 .tier-gold {
