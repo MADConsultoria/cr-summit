@@ -69,3 +69,36 @@ if (countdownRoot) {
     }, 1000);
   }
 }
+
+const heroSection = document.querySelector('.hero');
+const heroArtImage = document.querySelector('.hero-art img');
+
+if (heroSection && heroArtImage) {
+  let ticking = false;
+
+  const updateHeroArtParallax = () => {
+    const rect = heroSection.getBoundingClientRect();
+    const viewportH = window.innerHeight || document.documentElement.clientHeight;
+
+    if (rect.bottom > 0 && rect.top < viewportH && window.innerWidth > 980) {
+      const progress = Math.min(Math.max((-rect.top) / 420, 0), 1);
+      const translateY = progress * 28;
+      heroArtImage.style.transform = `translateY(${translateY.toFixed(1)}px)`;
+    } else {
+      heroArtImage.style.transform = 'translateY(0)';
+    }
+
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeroArtParallax);
+      ticking = true;
+    }
+  };
+
+  updateHeroArtParallax();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+}
