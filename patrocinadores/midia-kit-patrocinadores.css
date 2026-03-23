@@ -51,6 +51,21 @@ body {
   gap: 16px;
 }
 
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-actions .btn-outline {
+  border: 1px solid rgba(228, 108, 60, 0.75);
+  background: linear-gradient(95deg, #e46c3c, #c65a31);
+}
+
+.topbar-actions .btn-outline:hover {
+  filter: brightness(1.08);
+}
+
 .logo {
   width: 172px;
   height: auto;
@@ -282,5 +297,14 @@ h3 {
 
   .tier-gold {
     transform: none;
+  }
+
+  .topbar-actions {
+    gap: 8px;
+  }
+
+  .topbar-actions .btn {
+    padding: 10px 14px;
+    font-size: 0.72rem;
   }
 }
