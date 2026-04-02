@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CR Summit | Participacao Confirmada</title>
+    <meta
+      name="description"
+      content="Participacao confirmada no encontro do dia 09 do CR Summit. Confira os detalhes e proximos passos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css?v=20260323-1225" />
+    <style>
+      body.obrigado-page {
+        min-height: 100vh;
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .obrigado-wrap {
+        width: min(860px, 92%);
+        margin: 40px auto;
+      }
+
+      .obrigado-card {
+        border-radius: 22px;
+        border: 1px solid rgba(228, 108, 60, 0.5);
+        background: linear-gradient(165deg, rgba(11, 20, 24, 0.9), rgba(22, 37, 44, 0.8));
+        box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+        padding: clamp(24px, 4vw, 42px);
+      }
+
+      .obrigado-logo {
+        width: 172px;
+        margin-bottom: 18px;
+      }
+
+      .obrigado-card h1 {
+        max-width: 18ch;
+        margin-bottom: 10px;
+      }
+
+      .obrigado-card p {
+        margin: 0;
+      }
+
+      .obrigado-lead {
+        color: #eef4f6;
+        max-width: 58ch;
+        margin-bottom: 18px;
+      }
+
+      .obrigado-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin: 0 0 14px;
+      }
+
+      .obrigado-item {
+        margin: 0;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(228, 108, 60, 0.44);
+        background: rgba(228, 108, 60, 0.08);
+      }
+
+      .obrigado-item strong {
+        display: block;
+        color: #ffd9a8;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 4px;
+      }
+
+      .obrigado-item span {
+        color: #f8f1e7;
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+
+      .obrigado-next {
+        margin: 0 0 22px;
+        padding-left: 18px;
+        color: #a7b8b9;
+      }
+
+      .obrigado-next li {
+        margin-bottom: 6px;
+      }
+
+      .obrigado-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn.btn-outline {
+        background: transparent;
+        border: 1px solid rgba(167, 184, 185, 0.45);
+      }
+
+      @media (max-width: 860px) {
+        body.obrigado-page {
+          align-items: flex-start;
+        }
+
+        .obrigado-wrap {
+          margin-top: 22px;
+          margin-bottom: 24px;
+        }
+
+        .obrigado-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="obrigado-page">
+    <main class="obrigado-wrap">
+      <section class="obrigado-card" aria-labelledby="titulo-obrigado">
+        <img class="obrigado-logo" src="../assets/images/logo-v2.webp" alt="CR Summit" />
+        <p class="eyebrow">Inscricao concluida</p>
+        <h1 id="titulo-obrigado">Obrigado! Sua participacao no dia 09 esta confirmada.</h1>
+        <p class="obrigado-lead">
+          Seu cadastro foi recebido com sucesso. Nos vemos no encontro presencial do CR Summit em Alphaville.
+        </p>
+
+        <div class="obrigado-grid" aria-label="Detalhes do encontro">
+          <p class="obrigado-item"><strong>Data</strong><span>09/04/2026</span></p>
+          <p class="obrigado-item"><strong>Horario</strong><span>19h as 22h</span></p>
+          <p class="obrigado-item">
+            <strong>Local</strong>
+            <span>Al. Rio Negro, 500, Torre A, 20 andar, Alphaville Industrial, Barueri - SP</span>
+          </p>
+        </div>
+
+        <ul class="obrigado-next">
+          <li>Cheque seu e-mail e WhatsApp para receber as orientacoes finais.</li>
+          <li>Chegue com antecedencia para aproveitar o networking do inicio ao fim.</li>
+          <li>Traga suas principais duvidas para sair com um plano pratico de execucao.</li>
+        </ul>
+
+        <div class="obrigado-actions">
+          <a class="btn" href="https://share.google/iznhdN9aXXvI6bwbH" target="_blank" rel="noopener noreferrer">
+            Ver local no mapa
+          </a>
+          <a class="btn btn-outline" href="./index.html">Voltar para pagina do evento</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
