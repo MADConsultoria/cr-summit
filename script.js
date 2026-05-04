@@ -123,10 +123,11 @@ if (videoCarousel) {
     const target = videoCards[index];
 
     if (target) {
-      target.scrollIntoView({
+      const left = target.offsetLeft - (videoCarousel.clientWidth - target.clientWidth) / 2;
+
+      videoCarousel.scrollTo({
+        left,
         behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
       });
     }
   };
@@ -185,6 +186,66 @@ if (videoCarousel) {
   videoCarousel.addEventListener('pointerdown', stopVideoCarousel);
   videoCarousel.addEventListener('pointerup', startVideoCarousel);
   videoCarousel.addEventListener('pointercancel', startVideoCarousel);
+  videoCarousel.querySelectorAll('video').forEach((video) => {
+    video.addEventListener('play', stopVideoCarousel);
+    video.addEventListener('pause', startVideoCarousel);
+    video.addEventListener('ended', startVideoCarousel);
+  });
   mobileCarouselQuery.addEventListener('change', startVideoCarousel);
   startVideoCarousel();
 }
+
+const testimonialVideosWithThumbTime = document.querySelectorAll('.video-card video[data-thumb-time]');
+
+testimonialVideosWithThumbTime.forEach((video) => {
+  const source = video.querySelector('source');
+  const thumbTime = Number(video.dataset.thumbTime);
+
+  if (!source || !source.src || Number.isNaN(thumbTime)) {
+    return;
+  }
+
+  const thumbVideo = document.createElement('video');
+  thumbVideo.muted = true;
+  thumbVideo.playsInline = true;
+  thumbVideo.preload = 'auto';
+  thumbVideo.src = source.src;
+
+  const cleanup = () => {
+    thumbVideo.removeAttribute('src');
+    thumbVideo.load();
+  };
+
+  thumbVideo.addEventListener(
+    'loadedmetadata',
+    () => {
+      const safeTime = Math.min(Math.max(thumbTime, 0), Math.max(thumbVideo.duration - 0.1, 0));
+      thumbVideo.currentTime = safeTime;
+    },
+    { once: true }
+  );
+
+  thumbVideo.addEventListener(
+    'seeked',
+    () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const width = thumbVideo.videoWidth || 540;
+        const height = thumbVideo.videoHeight || 960;
+
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext('2d').drawImage(thumbVideo, 0, 0, width, height);
+        video.poster = canvas.toDataURL('image/jpeg', 0.78);
+      } catch (error) {
+        console.warn('Não foi possível gerar a thumb do depoimento.', error);
+      }
+
+      cleanup();
+    },
+    { once: true }
+  );
+
+  thumbVideo.addEventListener('error', cleanup, { once: true });
+  thumbVideo.load();
+});

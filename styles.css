@@ -1003,22 +1003,25 @@ body.media-kit-page {
     margin-bottom: 0;
   }
 
-  .video-grid {
+  .testimonials-video-section .video-grid {
     width: calc(100vw - 24px);
     margin-left: calc(50% - 50vw + 12px);
     display: flex;
+    grid-template-columns: none;
     gap: 12px;
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 4px 0 18px;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .video-grid::-webkit-scrollbar {
+  .testimonials-video-section .video-grid::-webkit-scrollbar {
     display: none;
   }
 
-  .video-card {
+  .testimonials-video-section .video-card {
     flex: 0 0 min(76vw, 280px);
     scroll-snap-align: center;
   }
