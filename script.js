@@ -107,3 +107,84 @@ if (heroSection && heroArtImage) {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
 }
+
+const videoCarousel = document.querySelector('.video-grid');
+
+if (videoCarousel) {
+  const mobileCarouselQuery = window.matchMedia('(max-width: 980px)');
+  const videoCards = Array.from(videoCarousel.querySelectorAll('.video-card'));
+  let carouselTimer;
+  let activeVideoIndex = 0;
+
+  const hasPlayingVideo = () =>
+    Array.from(videoCarousel.querySelectorAll('video')).some((video) => !video.paused && !video.ended);
+
+  const scrollToVideoCard = (index) => {
+    const target = videoCards[index];
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+  };
+
+  const stopVideoCarousel = () => {
+    if (carouselTimer) {
+      clearInterval(carouselTimer);
+      carouselTimer = null;
+    }
+  };
+
+  const startVideoCarousel = () => {
+    stopVideoCarousel();
+
+    if (!mobileCarouselQuery.matches || videoCards.length < 2) {
+      return;
+    }
+
+    carouselTimer = setInterval(() => {
+      if (hasPlayingVideo()) {
+        return;
+      }
+
+      activeVideoIndex = (activeVideoIndex + 1) % videoCards.length;
+      scrollToVideoCard(activeVideoIndex);
+    }, 4200);
+  };
+
+  videoCarousel.addEventListener(
+    'scroll',
+    () => {
+      if (!mobileCarouselQuery.matches) {
+        return;
+      }
+
+      const carouselCenter = videoCarousel.getBoundingClientRect().left + videoCarousel.clientWidth / 2;
+      let closestIndex = activeVideoIndex;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      videoCards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(cardCenter - carouselCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      activeVideoIndex = closestIndex;
+    },
+    { passive: true }
+  );
+
+  videoCarousel.addEventListener('pointerdown', stopVideoCarousel);
+  videoCarousel.addEventListener('pointerup', startVideoCarousel);
+  videoCarousel.addEventListener('pointercancel', startVideoCarousel);
+  mobileCarouselQuery.addEventListener('change', startVideoCarousel);
+  startVideoCarousel();
+}

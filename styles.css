@@ -1004,10 +1004,23 @@ body.media-kit-page {
   }
 
   .video-grid {
-    width: 100%;
-    margin-left: 0;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    width: calc(100vw - 24px);
+    margin-left: calc(50% - 50vw + 12px);
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 0 18px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .video-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .video-card {
+    flex: 0 0 min(76vw, 280px);
+    scroll-snap-align: center;
   }
 
   .event-gallery {
