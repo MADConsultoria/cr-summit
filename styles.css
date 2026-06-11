@@ -777,6 +777,80 @@ h3 {
   font-size: 0.9rem;
 }
 
+.lead-form {
+  display: grid;
+  gap: 16px;
+}
+
+.form-field {
+  display: grid;
+  gap: 7px;
+}
+
+.form-field label {
+  color: #f0f5f7;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.form-field input {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid rgba(167, 184, 185, 0.34);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.28);
+  color: #ffffff;
+  padding: 12px 14px;
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field input:focus {
+  border-color: var(--gold-strong);
+  box-shadow: 0 0 0 3px rgba(228, 108, 60, 0.16);
+}
+
+.form-consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.form-consent input {
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  accent-color: var(--gold-strong);
+}
+
+.lead-form .btn {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}
+
+.lead-form .btn:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.price-cta .form-status {
+  min-height: 20px;
+  margin: 0;
+  color: #b7e4c7;
+  text-align: center;
+}
+
+.price-cta .form-status.is-error {
+  color: #ffb4a2;
+}
+
 .urgency-box {
   margin-top: 14px;
   border-radius: 12px;

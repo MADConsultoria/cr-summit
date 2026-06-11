@@ -31,9 +31,9 @@ if (countdownRoot) {
   const path = (window.location.pathname || '').toLowerCase();
   const isEncontroPage = path.includes('/encontro/') || path.endsWith('/encontro') || path.includes('/encontro/index.html');
 
-  // index: 19/05/2026 23:59:59 | encontro: 08/04/2026 23:59:59 (America/Sao_Paulo, UTC-03:00)
+  // index: 19/05/2026 23:59:59 | encontro: 26/06/2026 23:59:59 (America/Sao_Paulo, UTC-03:00)
   const targetDate = isEncontroPage
-    ? new Date('2026-04-08T23:59:59-03:00')
+    ? new Date('2026-06-26T23:59:59-03:00')
     : new Date('2026-05-19T23:59:59-03:00');
 
   const pad = (n) => String(n).padStart(2, '0');
