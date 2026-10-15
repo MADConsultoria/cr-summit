@@ -38,3 +38,9 @@ Se preferir JPG/WebP, basta alterar as extensoes no `index.html`.
 
 ## Como testar localmente
 Abra `index.html` no navegador.
+
+## Rotas do site
+- `/evento`: landing page do CR Summit, em `evento/index.html`.
+- `/`: redirecionamento temporario (302) para `/evento`, ate a criacao da nova pagina inicial. Ao criar a home, substituir o `index.html` da raiz e remover o bloco `location = /` do `nginx.conf`.
+- Os arquivos compartilhados (CSS, JavaScript, imagens e videos) continuam na raiz e usam caminhos absolutos na pagina do evento.
+- Publicacao: reconstruir e publicar a imagem Docker para aplicar os arquivos e a configuracao Nginx.
