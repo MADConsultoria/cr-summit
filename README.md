@@ -41,6 +41,13 @@ Abra `index.html` no navegador.
 
 ## Rotas do site
 - `/evento`: landing page do CR Summit, em `evento/index.html`.
-- `/`: redirecionamento temporario (302) para `/evento`, ate a criacao da nova pagina inicial. Ao criar a home, substituir o `index.html` da raiz e remover o bloco `location = /` do `nginx.conf`.
+- `/`: pagina inicial copiada de Portes Engenharia, independente de `/evento`.
 - Os arquivos compartilhados (CSS, JavaScript, imagens e videos) continuam na raiz e usam caminhos absolutos na pagina do evento.
 - Publicacao: reconstruir e publicar a imagem Docker para aplicar os arquivos e a configuracao Nginx.
+
+## Pagina inicial replicada de Portes Engenharia
+- Copia de `index.html`, `support.js`, `brand/`, `portfolio/`, `seq/` e `analise/`. A origem nao foi modificada.
+- Layout, cores, textos, imagens e marcas originais preservados nesta etapa, para adaptacao posterior dentro deste projeto.
+- `support.js` carrega React, ReactDOM e Babel de unpkg.com; as fontes usam Google Fonts.
+- A animacao usa os frames de `seq/build/` e o portfolio usa `portfolio/`.
+- O questionario em `/analise/` foi copiado, mas seu envio a `/api/leads` depende do backend Node/ClickUp do projeto de origem. Essa integracao ainda nao esta configurada neste projeto Nginx; nao considerar a captacao operacional antes de integra-la.
